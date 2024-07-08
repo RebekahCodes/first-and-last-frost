@@ -1,7 +1,7 @@
 # First and Last Frost
 
 ## Overview
-This project will be a front-end application built with TypeScript that interacts with an open-source weather API. The primary feature of the application is to show users the average first and last frost dates when they enter their postcode.
+This project is a front-end application built with TypeScript that interacts with an open-source weather API. The primary feature of the application is to show users the average first and last frost dates when they enter their postcode.
 
 ## Features
 - **Postcode Input**: Users can input their postcode to receive localized weather information.
