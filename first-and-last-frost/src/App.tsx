@@ -1,6 +1,6 @@
 
 import './App.css'
-import Container from './components/Container'
+import Container from './components/Container/Container'
 
 function App() {
 
