@@ -1,0 +1,8 @@
+.container {
+    width: 90%; /* Make the box take up the full width of its parent container */
+    height: 200px; /* Adjust the height as needed */
+    background-color: #a0c1ce; /* Set your desired background color */
+    border: 1px solid #131212;
+    margin: auto;
+    text-align: center;
+  }
