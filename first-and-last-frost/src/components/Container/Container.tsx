@@ -10,7 +10,7 @@ function Container(){ //Container component will be fed children as parameter, t
 return (
     <div className='container'>
       <img className='logo' src={Logo} alt='logo' />
-      <p>Instructions</p>
+      <p className='instructions'>Enter your postcode to find out your average first and last frost dates</p>
       <p>Form</p>
       <p>Results</p>
     </div>
