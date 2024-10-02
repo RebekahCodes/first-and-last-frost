@@ -7,11 +7,6 @@ import { useState } from "react";
 
 function Results({userPostcode}:any){
 
-    const [latitude, setLatitude] = useState('')
-    const [longitude, setLongitude] = useState('')
-
-    
-
     return (
         <div className='Results'>
             <div className="postcode">
@@ -19,7 +14,7 @@ function Results({userPostcode}:any){
           </div>
           
           <div className="location"></div>
-          <p>location is </p>
+          <p>location is</p>
         </div>
     );
     }

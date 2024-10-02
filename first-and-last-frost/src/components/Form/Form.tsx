@@ -3,29 +3,33 @@ import { useState } from 'react';
 import './Form.css'
 import Results from '../Results/Results';
 
+const geoKey= import.meta.env.VITE_GEO_API_KEY // API key is secret place in the .env file. 
 
 function Form() { 
 
-    const [userInput, setUserInput] = useState('');
-    const [userPostcode, setUserPostcode] = useState('');
+    const [userInput, setUserInput] = useState(''); //Updates as the user types 
+    const [userPostcode, setUserPostcode] = useState(''); //Updates when the form is submitted
+    const [latitude, setLatitude] = useState('') 
+    const [longitude, setLongitude] = useState('')
 
     async function getLocation (userPostcode:any){
-        const response = await fetch (`https://api.opencagedata.com/geocode/v1/json?q=${userPostcode}&key=b24754d869804a358fb2a74f3a52a961&language=en&pretty=1`);
+        const response = await fetch (`https://api.opencagedata.com/geocode/v1/json?q=${userPostcode}&key=${geoKey}&language=en&pretty=1`);
         const data = await response.json();
         console.log(data)
-        console.log(data.results[0].geometry.lat)
-        console.log(data.results[0].geometry.lng)
-        console.log(userPostcode)
+        const lastIndex = data.results.length - 1;
+        setLatitude(data.results[lastIndex].geometry.lat)
+        setLongitude(data.results[lastIndex].geometry.lng)
+        console.log(`latitude is ${latitude}`);
+        console.log(`longitude is ${longitude}`);
         }
    
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
+        e.preventDefault() 
         setUserPostcode(userInput)
         getLocation(userInput)
         console.log(`submitted postcode is ${userInput}`);
-        
-    
-        <Results userPostcode={userPostcode} />; 
+  
+        <Results userPostcode={userPostcode}/>; 
     };    
         
 
@@ -43,7 +47,7 @@ function Form() {
             
         </form>
         
-        <Results userPostcode={userPostcode} />
+        <Results userPostcode={userPostcode} latitude={latitude} longitude={longitude} />
         </>
     )
     }
